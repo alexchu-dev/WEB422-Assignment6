@@ -1,11 +1,12 @@
-/*********************************************************************************
- *  WEB422 – Assignment 5
- *  I declare that this assignment is my own work in accordance with Seneca Academic Policy.
- *  No part of this assignment has been copied manually or electronically from any other source
- *  (including web sites) or distributed to other students.
+/**********************************************************************************
+ * WEB422 – Assignment 06 * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of this
+ * assignment has been copied manually or electronically from any other source (including web sites) or
+ * distributed to other students.
  *
- *  Name: Alex Chu    Student ID: 153954219   Date: 20 Jul 2023
- *  Demo: https://alexchu-web422-a5.vercel.app/
+ * Name: _Alex Chu_ Student ID: _153954219_ Date: 2 Aug 2023
+ * Cyclic API (Deployed) Link: https://alexchu-web422-a6.cyclic.cloud/api/user
+ * Vercel App (Deployed) Link: https://alexchu-web422-a6.vercel.app/
+ *
  ********************************************************************************/
 import { Image } from "react-bootstrap"
 import Row from "react-bootstrap/Row"
@@ -19,7 +20,7 @@ export default function Home() {
             src="https://upload.wikimedia.org/wikipedia/commons/3/30/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg"
             fluid
             rounded
-            alt="Assignment 5"
+            alt="Assignment 6"
           />
           <br />
           <br />

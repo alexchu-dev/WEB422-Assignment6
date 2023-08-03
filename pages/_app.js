@@ -1,12 +1,16 @@
 import "bootswatch/dist/minty/bootstrap.min.css"
+import dynamic from "next/dynamic"
 import "@/styles/globals.css"
 
 import Layout from "@/components/Layout"
+const RouteGuard = dynamic(() => import("@/components/RouteGuard"), {
+  ssr: false,
+})
 import { SWRConfig } from "swr"
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <RouteGuard>
       <Layout>
         <SWRConfig
           value={{
@@ -31,6 +35,6 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </SWRConfig>{" "}
       </Layout>
-    </>
+    </RouteGuard>
   )
 }

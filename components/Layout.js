@@ -8,13 +8,11 @@ import Footer from "@/components/Footer"
 export default function Layout(props) {
   return (
     <>
-      <div className="main">
-        <MainNav />
-        <br />
-        <Container>{props.children}</Container>
-        <br />
-        <Footer />
-      </div>
+      <MainNav />
+      <br />
+      <Container>{props.children}</Container>
+      <br />
+      <Footer />
     </>
   )
 }

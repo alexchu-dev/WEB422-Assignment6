@@ -7,7 +7,7 @@ import ArtworkCard from "@/components/ArtworkCard"
 
 export default function Favourite() {
   const [favouritesList, setFavouritesList] = useAtom(favouritesAtom) // Getting a reference to the favouriteList from favouritesAtom
-
+  if (!favouritesList) return null
   return (
     <>
       <Row className="gy-4">

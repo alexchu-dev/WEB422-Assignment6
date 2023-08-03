@@ -10,6 +10,7 @@ import { useState } from "react"
 import { useAtom } from "jotai"
 import { favouritesAtom } from "@/store"
 import { useEffect } from "react"
+import { addToFavourites, removeFromFavourites } from "@/lib/userData"
 
 // In Next.js, we can use import SWR from client components and allow us to use the SWR  client data fetching hooks. Stale-while-revalidate is a strategy to return the data from cache(stale), then send the fetch request (revalidate) and finally come with the up-to-date data.
 export default function ArtworkCardDetail({ objectID }) {
@@ -22,16 +23,21 @@ export default function ArtworkCardDetail({ objectID }) {
   const [favouritesList, setFavouritesList] = useAtom(favouritesAtom)
 
   // Manipulate the showAdded true false state if the objectID is included
-  const [showAdded, setShowAdded] = useState(favouritesList.includes(objectID))
+  const [showAdded, setShowAdded] = useState(false)
+  useEffect(() => {
+    setShowAdded(favouritesList?.includes(objectID))
+  }, [favouritesList])
 
   // To be invoked when the button is clicked
-  const favouritesClicked = () => {
-    if (showAdded) {
-      setFavouritesList((current) => current.filter((fav) => fav != objectID))
-      setShowAdded(false)
-    } else {
-      setFavouritesList((current) => [...current, objectID])
-      setShowAdded(true)
+  const favouritesClicked = async () => {
+    try {
+      if (showAdded) {
+        setFavouritesList(await removeFromFavourites(objectID))
+      } else {
+        setFavouritesList(await addToFavourites(objectID))
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
   // Setting side effect to debug
